@@ -7,7 +7,7 @@ export default defineConfig({
     description: '性能优异、转换准确的 js 中文转拼音工具',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
-    // base: '.',
+    base: '/qierkang.github.io/pms-doc-html/',
     server: {
         host: '0.0.0.0', // 绑定到所有网络接口
         port: 5173,       // 监听的端口
