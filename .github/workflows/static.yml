@@ -43,7 +43,7 @@ jobs:
         run: pnpm run docs:build # 这里是打包 vitepress 命令
         with:
           # Upload entire repository
-          path: '.vitepress/dist'
+          path: '.docs'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
