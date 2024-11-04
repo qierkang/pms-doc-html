@@ -36,7 +36,7 @@ RUN npm install -g pnpm
 # 安装依赖
 RUN npm cache clean --force
 RUN rm -rf node_modules
-RUN npm install --arch=x64 --platform=linux esbuild
+RUN npm install
 
 # 重新安装正确平台版本的 esbuild
 #RUN rm -rf node_modules/.vitepress/node_modules/esbuild
