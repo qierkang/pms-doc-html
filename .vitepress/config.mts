@@ -3,7 +3,7 @@ import {defineConfig} from 'vitepress';
 // https://vitepress.dev/reference/site-config
 
 export default defineConfig({
-    title: 'pms-doc',
+    title: 'pms-doc-html',
     description: '性能优异、转换准确的 js 中文转拼音工具',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
