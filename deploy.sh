@@ -10,6 +10,6 @@ pnpm run docs:build
 cd .vitepress/dist
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:qierkang/pms-doc-html.git master
+git push -f git@github.com:qierkang/pms-doc-html.git master:gh-pages
 
 cd -
