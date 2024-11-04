@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as a,Q as c}from"./chunks/framework.6d94f49f.js";const f=JSON.parse('{"title":"交流","description":"","frontmatter":{},"headers":[],"relativePath":"more/contact.md","filePath":"more/contact.md"}'),o={name:"more/contact.md"},s=c("",3),r=[s];function n(d,i,_,m,h,p){return t(),a("div",null,r)}const u=e(o,[["render",n]]);export{f as __pageData,u as default};
