@@ -1,10 +1,10 @@
 {
   "scripts": {
-    "build": "vitepress build",
-    "deploy": "gh-pages -d .vitepress/dist"
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0",
     "less": "^4.2.0",
     "prismjs": "^1.29.0",
     "vitepress": "1.0.0-rc.25",
