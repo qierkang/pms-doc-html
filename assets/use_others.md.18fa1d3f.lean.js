@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.6d94f49f.js";const g=JSON.parse('{"title":"pinyin","description":"","frontmatter":{},"headers":[],"relativePath":"use/others.md","filePath":"use/others.md"}'),p={name:"use/others.md"},o=l("",11),e=[o];function t(c,r,i,y,E,d){return n(),a("div",null,e)}const F=s(p,[["render",t]]);export{g as __pageData,F as default};
