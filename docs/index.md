@@ -12,10 +12,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /use/home
+      link: /基础设置/home
     - theme: alt
       text: 使用教程
-      link: /use/home
+      link: /基础设置/home
 
 features:
   - title: 🎨 功能丰富

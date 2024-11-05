@@ -35,47 +35,47 @@ export default defineConfig({
         outline: {
             level: [2, 6],
         },
-        // sidebar: [
-        //     {
-        //         text: '首页',
-        //         link: '/基础设置/home.md',
-        //         items: [
-        //             {
-        //                 text: '基础设置',
-        //                 collapsed: true,
-        //                 items: [
-        //                     {
-        //                         text: '公司信息',
-        //                         collapsed: true,
-        //                         items: [
-        //                             {text: '人员信息', link: '/基础设置/公司信息/人员信息.md'},
-        //                             {text: '印章授权', link: '/基础设置/公司信息/印章授权.md'},
-        //                             {text: '基本资料', link: '/基础设置/公司信息/基本资料.md'},
-        //                             {text: '菜单设置', link: '/基础设置/公司信息/菜单设置.md'},
-        //                             {text: '部门岗位', link: '/基础设置/公司信息/部门岗位.md'},
-        //                         ],
-        //                     },
-        //                     {
-        //                         text: '流程权限管理',
-        //                         link: '/基础设置/流程权限管理.md',
-        //                     }
-        //                 ]
-        //             },
-        //             {text: '品质管理',
-        //                 collapsed: true,
-        //                 items: [
-        //                     {text: '设备分类', link: '/品质管理/质检设备分类.md'},
-        //                 ],
-        //             },
-        //         ],
-        //     },
-        //     // {
-        //     //     text: 'API及示例',
-        //     //     items: [
-        //     //         {text: '官网设置', link: '/基础设置/process-management.md'},
-        //     //     ],
-        //     // },
-        // ],
+        sidebar: [
+            {
+                text: '首页',
+                link: '/基础设置/home.md',
+                items: [
+                    {
+                        text: '基础设置',
+                        collapsed: true,
+                        items: [
+                            {
+                                text: '公司信息',
+                                collapsed: true,
+                                items: [
+                                    {text: '人员信息', link: '/基础设置/公司信息/人员信息.md'},
+                                    {text: '印章授权', link: '/基础设置/公司信息/印章授权.md'},
+                                    {text: '基本资料', link: '/基础设置/公司信息/基本资料.md'},
+                                    {text: '菜单设置', link: '/基础设置/公司信息/菜单设置.md'},
+                                    {text: '部门岗位', link: '/基础设置/公司信息/部门岗位.md'},
+                                ],
+                            },
+                            {
+                                text: '流程权限管理',
+                                link: '/基础设置/流程权限管理.md',
+                            }
+                        ]
+                    },
+                    {text: '品质管理',
+                        collapsed: true,
+                        items: [
+                            {text: '设备分类', link: '/品质管理/质检设备分类.md'},
+                        ],
+                    },
+                ],
+            },
+            // {
+            //     text: 'API及示例',
+            //     items: [
+            //         {text: '官网设置', link: '/基础设置/process-management.md'},
+            //     ],
+            // },
+        ],
     },
     // locales: {
     //     root: {
