@@ -8,7 +8,7 @@ export default defineConfig({
     description: '性能优异、开箱即用的数据建模',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
-    base: '/pms-doc-html/.vitepress/dist/',
+    base: '/pms-doc-html/',
     server: {
         host: '0.0.0.0', // 绑定到所有网络接口
         port: 5173,       // 监听的端口
@@ -35,9 +35,10 @@ export default defineConfig({
         outline: {
             level: [2, 6],
         },
-        // sidebar: {
-        //     '/basic-settings/': {
-        //         text: '指南',
+        // sidebar: [
+        //     {
+        //         text: '首页',
+        //         link: '/基础设置/home.md',
         //         items: [
         //             {
         //                 text: '基础设置',
@@ -45,59 +46,36 @@ export default defineConfig({
         //                 items: [
         //                     {
         //                         text: '公司信息',
+        //                         collapsed: true,
         //                         items: [
-        //                             {text: '流程权限管理', link: '/basic-settings/process-management.md'},
+        //                             {text: '人员信息', link: '/基础设置/公司信息/人员信息.md'},
+        //                             {text: '印章授权', link: '/基础设置/公司信息/印章授权.md'},
+        //                             {text: '基本资料', link: '/基础设置/公司信息/基本资料.md'},
+        //                             {text: '菜单设置', link: '/基础设置/公司信息/菜单设置.md'},
+        //                             {text: '部门岗位', link: '/基础设置/公司信息/部门岗位.md'},
         //                         ],
+        //                     },
+        //                     {
+        //                         text: '流程权限管理',
+        //                         link: '/基础设置/流程权限管理.md',
         //                     }
         //                 ]
         //             },
-        //             {text: '流程权限管理', link: '/basic-settings/process-management.md'},
-        //             {text: '人员信息', link: '/basic-settings/公司信息/人员信息.md'},
-        //             {text: '销售管理', link: '/basic-settings/公司信息/部门岗位.md'},
+        //             {text: '品质管理',
+        //                 collapsed: true,
+        //                 items: [
+        //                     {text: '设备分类', link: '/品质管理/质检设备分类.md'},
+        //                 ],
+        //             },
         //         ],
         //     },
-        // }
-        sidebar: [
-            {
-                text: '首页',
-                link: '/基础设置/home.md',
-                items: [
-                    {
-                        text: '基础设置',
-                        collapsed: true,
-                        items: [
-                            {
-                                text: '公司信息',
-                                collapsed: true,
-                                items: [
-                                    {text: '人员信息', link: '/基础设置/公司信息/人员信息.md'},
-                                    {text: '印章授权', link: '/基础设置/公司信息/印章授权.md'},
-                                    {text: '基本资料', link: '/基础设置/公司信息/基本资料.md'},
-                                    {text: '菜单设置', link: '/基础设置/公司信息/菜单设置.md'},
-                                    {text: '部门岗位', link: '/基础设置/公司信息/部门岗位.md'},
-                                ],
-                            },
-                            {
-                                text: '流程权限管理',
-                                link: '/基础设置/流程权限管理.md',
-                            }
-                        ]
-                    },
-                    {text: '品质管理',
-                        collapsed: true,
-                        items: [
-                            {text: '设备分类', link: '/品质管理/质检设备分类.md'},
-                        ],
-                    },
-                ],
-            },
-            // {
-            //     text: 'API及示例',
-            //     items: [
-            //         {text: '官网设置', link: '/基础设置/process-management.md'},
-            //     ],
-            // },
-        ],
+        //     // {
+        //     //     text: 'API及示例',
+        //     //     items: [
+        //     //         {text: '官网设置', link: '/基础设置/process-management.md'},
+        //     //     ],
+        //     // },
+        // ],
     },
     // locales: {
     //     root: {
