@@ -1,13 +1,14 @@
 import {defineConfig} from 'vitepress';
+import imageFigures from 'markdown-it-image-figures'
 
 // https://vitepress.dev/reference/site-config
 
 export default defineConfig({
     title: 'pms-doc-html',
-    description: '性能优异、转换准确的 js 中文转拼音工具',
+    description: '性能优异、开箱即用的数据建模',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
-    base: './',
+    base: '/pms-doc-html/',
     server: {
         host: '0.0.0.0', // 绑定到所有网络接口
         port: 5173,       // 监听的端口
@@ -21,7 +22,6 @@ export default defineConfig({
             message:
                 '<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023031871号</a>',
         },
-        // https://vitepress.dev/reference/default-theme-config
         nav: [
             {
                 text: '运营系统',
@@ -35,40 +35,19 @@ export default defineConfig({
         outline: {
             level: [2, 6],
         },
-
-        sidebar: [
-            {
-                text: '指南',
-                items: [
-                    {text: '介绍', link: '/guide/compare.md'},
-                    {text: '快速开始', link: '/guide/start.md'},
-                    {text: '更新日志', link: '/guide/changelog.md'},
-                ],
-            },
-            {
-                text: 'API及示例',
-                items: [
-                    {text: 'pinyin: 拼音转换', link: '/use/pinyin.md'},
-                    {text: 'segment: 分词', link: '/use/segment.md'},
-                    {text: 'match: 拼音汉字匹配', link: '/use/match.md'},
-                    {text: 'convert: 格式转换', link: '/use/convert.md'},
-                    {text: 'customPinyin: 自定义拼音', link: '/use/customPinyin.md'},
-                    {text: 'html: HTML字符串', link: '/use/html.md'},
-                    {text: 'polyphonic: 全部读音', link: '/use/polyphonic.md'},
-                    {text: 'addDict: 提高准确率', link: '/use/addDict.md'},
-                    {text: 'others: 其他 API', link: '/use/others.md'},
-                ],
-            },
-            {
-                text: '更多',
-                items: [{text: '交流', link: '/more/contact.md'}],
-            },
-        ],
-
-        // socialLinks: [
+        // sidebar: [
         //     {
-        //         icon: 'github',
-        //         link: 'https://github.com/zh-lx/pinyin-pro',
+        //         text: '指南',
+        //         items: [
+        //             {text: '介绍', link: '/guide/compare.md'},
+        //             {text: '快速开始', link: '/guide/start.md'},
+        //             {text: '更新日志', link: '/guide/changelog.md'},
+        //         ],
+        //     },
+        //     {
+        //         text: 'API及示例',
+        //         items: [
+        //         ],
         //     },
         // ],
     },
@@ -77,10 +56,26 @@ export default defineConfig({
     //         label: '简体中文',
     //         lang: 'zh',
     //     },
-    //     fr: {
-    //         label: 'English',
-    //         lang: 'en',
-    //         link: 'https://pinyin-pro.cn/en', // default /fr/ -- shows on navbar translations menu, can be external
-    //     },
     // },
+    markdown: {
+        // Adding a markup-it plugin
+        config: md => {
+            const _super = md.renderer.rules.image
+            md.renderer.rules.image = function (tokens, idx, options, env, self) {
+                if (tokens[idx].attrs[2]) {
+                    const title = tokens[idx].attrs[2][1]
+                    const src = tokens[idx].attrs[0][1]
+                    const alt = tokens[idx].content
+                    return `
+                    <figure>
+                        <img src="${src}" alt="${alt}" title="${title}" />
+                        <figcaption align="center">
+                            <small style="opacity: 0.8">${title}</small>
+                        </figcaption>
+                    </figure>`
+                }
+                return _super(tokens, idx, options, env, self)
+            }
+        }
+    },
 });

@@ -72,31 +72,31 @@ const options = [
     children: [
       {
         value: 'pinyin',
-        desc: '返回拼音全拼',
-        example: `// 返回拼音全拼
-pinyin('汉语拼音', { pattern: 'pinyin' }); // 'hàn yǔ pīn yīn'
-pinyin('汉语拼音', { pattern: 'pinyin', toneType: 'none' }); // 'han yu pin yin'
-pinyin('汉语拼音', { pattern: 'pinyin', toneType: 'num' }); // 'han4 yu3 pin1 yin1'
-pinyin('汉语拼音', { pattern: 'pinyin', type: 'array' }); // ["hàn", "yǔ", "pīn", "yīn"]
-pinyin('汉语拼音', { pattern: 'pinyin', toneType: 'none', type: 'array' }); // ["han", "yu", "pin", "yin"]
+        desc: '返回数据全拼',
+        example: `// 返回数据全拼
+pinyin('数据建模', { pattern: 'pinyin' }); // 'hàn yǔ pīn yīn'
+pinyin('数据建模', { pattern: 'pinyin', toneType: 'none' }); // 'han yu pin yin'
+pinyin('数据建模', { pattern: 'pinyin', toneType: 'num' }); // 'han4 yu3 pin1 yin1'
+pinyin('数据建模', { pattern: 'pinyin', type: 'array' }); // ["hàn", "yǔ", "pīn", "yīn"]
+pinyin('数据建模', { pattern: 'pinyin', toneType: 'none', type: 'array' }); // ["han", "yu", "pin", "yin"]
 `,
       },
       {
         value: 'initial',
         desc: '返回声母',
         example: `// 返回声母
-pinyin('汉语拼音', { pattern: 'initial' }); // 'h y p y'
-pinyin('汉语拼音', { pattern: 'initial', type: 'array' }); // ["h", "y", "p", "y"]
+pinyin('数据建模', { pattern: 'initial' }); // 'h y p y'
+pinyin('数据建模', { pattern: 'initial', type: 'array' }); // ["h", "y", "p", "y"]
 `,
       },
       {
         value: 'final',
         desc: '返回韵母',
         example: `// 返回韵母
-pinyin('汉语拼音', { pattern: 'final' }); // 'àn ǔ īn īn'
-pinyin('汉语拼音', { pattern: 'final', toneType: 'none' }); // 'an u in in'
-pinyin('汉语拼音', { pattern: 'final', type: 'array' }); // ["àn", "ǔ", "īn", "īn"]
-pinyin('汉语拼音', { pattern: 'final', toneType: 'none', type: 'array' }); // ["an", "u", "in", "in"]
+pinyin('数据建模', { pattern: 'final' }); // 'àn ǔ īn īn'
+pinyin('数据建模', { pattern: 'final', toneType: 'none' }); // 'an u in in'
+pinyin('数据建模', { pattern: 'final', type: 'array' }); // ["àn", "ǔ", "īn", "īn"]
+pinyin('数据建模', { pattern: 'final', toneType: 'none', type: 'array' }); // ["an", "u", "in", "in"]
 `,
       },
       {
@@ -124,13 +124,13 @@ pinyin('村庄', { pattern: 'finalTail', type: 'array' }); // [ 'n', 'ng' ]
         value: 'num',
         desc: '返回音调对应数字(轻声返回 0)',
         example: `// 返回音调
-pinyin('汉语拼音', { pattern: 'num' }); // '4 3 1 1'
-pinyin('汉语拼音', { pattern: 'num', type: 'array' }); // ["4", "3", "1", "1"]
+pinyin('数据建模', { pattern: 'num' }); // '4 3 1 1'
+pinyin('数据建模', { pattern: 'num', type: 'array' }); // ["4", "3", "1", "1"]
 `,
       },
       {
         value: 'first',
-        desc: '返回拼音首字母',
+        desc: '返回数据首字母',
         example: `// 返回首字母
 pinyin('赵钱孙李额', { pattern: 'first' }); // 'z q s l é'
 pinyin('赵钱孙李额', { pattern: 'first', toneType: 'none' }); // 'z q s l e'
@@ -146,18 +146,18 @@ pinyin('赵钱孙李额', { pattern: 'first', toneType: 'none', type: 'array' })
     children: [
       {
         value: 'symbol',
-        desc: '作为音调符号带在拼音字母上',
-        example: `pinyin('汉语拼音', { toneType: 'symbol' }); // 'hàn yǔ pīn yīn'`,
+        desc: '作为音调符号带在数据字母上',
+        example: `pinyin('数据建模', { toneType: 'symbol' }); // 'hàn yǔ pīn yīn'`,
       },
       {
         value: 'num',
-        desc: '作为数字跟在拼音后',
-        example: `pinyin('汉语拼音', { toneType: 'num' }); // 'han4 yu3 pin1 yin1'`,
+        desc: '作为数字跟在数据后',
+        example: `pinyin('数据建模', { toneType: 'num' }); // 'han4 yu3 pin1 yin1'`,
       },
       {
         value: 'none',
         desc: '不加音调',
-        example: `pinyin('汉语拼音', { toneType: 'none' }); // 'han yu pin yin'`,
+        example: `pinyin('数据建模', { toneType: 'none' }); // 'han yu pin yin'`,
       },
     ],
   },
@@ -169,18 +169,18 @@ pinyin('赵钱孙李额', { pattern: 'first', toneType: 'none', type: 'array' })
     children: [
       {
         value: 'string',
-        desc: '输出字符串，拼音之间以空格隔开',
-        example: `pinyin('汉语拼音', { type: 'string' }); // 'hàn yǔ pīn yīn'`,
+        desc: '输出字符串，数据之间以空格隔开',
+        example: `pinyin('数据建模', { type: 'string' }); // 'hàn yǔ pīn yīn'`,
       },
       {
         value: 'array',
         desc: '输出为数组',
-        example: `pinyin('汉语拼音', { type: 'array' }); // ["hàn", "yǔ", "pīn", "yīn"]`,
+        example: `pinyin('数据建模', { type: 'array' }); // ["hàn", "yǔ", "pīn", "yīn"]`,
       },
       {
         value: 'all',
         desc: '输出完整信息的对象数组',
-        example: `pinyin('汉语拼音', { type: 'all' }); 
+        example: `pinyin('数据建模', { type: 'all' }); 
 /** result:
 [
   {
@@ -252,12 +252,12 @@ pinyin('赵钱孙李额', { pattern: 'first', toneType: 'none', type: 'array' })
     children: [
       {
         value: 'false',
-        desc: '输出汉字最常用的拼音',
+        desc: '输出汉字最常用的数据',
         example: `pinyin('好', { multiple: false }); // 'hǎo'`,
       },
       {
         value: 'true',
-        desc: '输出汉字的所有拼音',
+        desc: '输出汉字的所有数据',
         example: `pinyin('好', { multiple: true }); // 'hǎo hào'`,
       },
     ],
@@ -265,20 +265,20 @@ pinyin('赵钱孙李额', { pattern: 'first', toneType: 'none', type: 'array' })
   {
     option: 'separator',
     type: 'string',
-    description: '拼音之间的分隔符',
+    description: '数据之间的分隔符',
     default: '空格',
     children: [
       {
         value: '-',
-        desc: '拼音之间的分隔符',
-        example: `pinyin('汉语拼音', { separator: '-' }); // 'hàn-yǔ-pīn-yīn'`,
+        desc: '数据之间的分隔符',
+        example: `pinyin('数据建模', { separator: '-' }); // 'hàn-yǔ-pīn-yīn'`,
       },
     ],
   },
   {
     option: 'mode <code>deprecated, 使用 surname 代替</code>',
     type: 'string',
-    description: '拼音优先匹配的库模式',
+    description: '数据优先匹配的库模式',
     default: 'normal',
     children: [
       {
