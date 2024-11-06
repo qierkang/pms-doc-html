@@ -8,7 +8,8 @@ export default defineConfig({
     description: '性能优异、开箱即用的数据建模',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
-    base: '/pms-doc-html/',
+    base: '/pms-doc-html/', // gitPage
+    // base: '/pms-doc-html/.vitepress/dist/', // 本地静态地址
     server: {
         host: '0.0.0.0', // 绑定到所有网络接口
         port: 5173,       // 监听的端口
