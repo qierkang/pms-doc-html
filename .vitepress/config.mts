@@ -1,18 +1,22 @@
 import {defineConfig} from 'vitepress';
-import imageFigures from 'markdown-it-image-figures'
+import './hello.js'
 
-// https://vitepress.dev/reference/site-config
+/**
+ * 配置VitePress应用的参数
+ *
+ * @returns {object} VitePress配置对象
+ */
 
 export default defineConfig({
-    title: 'pms-doc-html',
-    description: '性能优异、开箱即用的数据建模',
+    title: 'PMS用户帮助文档',
+    description: '南京中造软件有限公司｜开箱即用的数据建模平台',
     srcDir: './docs',
     appearance: 'dark', // 默认配置，可以切换
-    base: '/pms-doc-html/', // gitPage
-    // base: '/pms-doc-html/.vitepress/dist/', // 本地静态地址
+    base: '/pms-doc-html/', // 发布到GitPage
+    // base: '/pms-doc-html/.vitepress/dist/', // 发布本地访问静态地址
     server: {
         host: '0.0.0.0', // 绑定到所有网络接口
-        port: 5173,       // 监听的端口
+        port: 5173,// 监听的端口
     },
     themeConfig: {
         search: {
@@ -20,8 +24,8 @@ export default defineConfig({
         },
         logo: '/images/logo-circle.svg',
         footer: {
-            message:
-                '<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023031871号</a>',
+            message: '© 2024 南京中造软件有限公司',
+            copyright: '<a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2023031871号</a>',
         },
         nav: [
             {
@@ -39,7 +43,7 @@ export default defineConfig({
         sidebar: [
             {
                 text: '首页',
-                link: '/基础设置/home.md',
+                link: '/基础设置/首页.md',
                 items: [
                     {
                         text: '基础设置',
@@ -62,7 +66,8 @@ export default defineConfig({
                             }
                         ]
                     },
-                    {text: '品质管理',
+                    {
+                        text: '品质管理',
                         collapsed: true,
                         items: [
                             {text: '设备分类', link: '/品质管理/质检设备分类.md'},
@@ -84,25 +89,19 @@ export default defineConfig({
     //         lang: 'zh',
     //     },
     // },
-    markdown: {
-        // Adding a markup-it plugin
-        config: md => {
-            const _super = md.renderer.rules.image
-            md.renderer.rules.image = function (tokens, idx, options, env, self) {
-                if (tokens[idx].attrs[2]) {
-                    const title = tokens[idx].attrs[2][1]
-                    const src = tokens[idx].attrs[0][1]
-                    const alt = tokens[idx].content
-                    return `
-                    <figure>
-                        <img src="${src}" alt="${alt}" title="${title}" />
-                        <figcaption align="center">
-                            <small style="opacity: 0.8">${title}</small>
-                        </figcaption>
-                    </figure>`
+    vite: {
+        plugins: [
+            {
+                name: 'PMS帮助文档',
+                transform(code, id) {
+                    if (id.includes('.vitepress/dist/client/app/data.js')) {
+                        return code.replace(
+                            'const dataSymbol = Symbol();',
+                            'const dataSymbol = "__vitepress_data__";'
+                        )
+                    }
                 }
-                return _super(tokens, idx, options, env, self)
-            }
-        }
+            },
+        ]
     },
 });
