@@ -1,5 +1,5 @@
-name: 部署VitePress
-
+name: 执行部署PMS-DOC
+run-name: ${{ github.actor }} 流水线正在部署PMS-DOC项目 🚀
 on:
   push:
     branches:
@@ -35,3 +35,7 @@ jobs:
           publish_dir: .vitepress/dist # 指定该文件夹中的 dist
           publish_branch: gh-pages # 推送到关联仓库的 gh-pages 分支
           dotfiles: true  # 包括在提交中，即使被 .gitignore 文件忽略
+      - name: 列出存储库中的文件
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 作业部署的状态为 ${{ job.status }}."
