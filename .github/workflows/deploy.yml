@@ -8,7 +8,6 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,25 +16,25 @@ jobs:
       - name: Setup Node.js and pnpm
         uses: actions/setup-node@v3
         with:
-          node-version: '20.10.0' # 设置 nodejs 的版本
-      - run: echo "🎉 设置 nodejs 的版本完成"
+          node-version: '22.11.0' # 设置 nodejs 的版本
+      - run: echo "💡 设置 nodejs 的版本完成"
       - name: Install pnpm
         run: npm install -g pnpm # 全局安装 pnpm
-      - run: echo "🎉 执行 npm install -g pnpm 全局安装pnpm 完成"
+      - run: echo "💡 执行 npm install -g pnpm 全局安装pnpm 完成"
       - name: Install dependencies
         run: pnpm install # 使用 pnpm 安装依赖
-      - run: echo "🎉 使用 pnpm install 安装依赖 完成"
+      - run: echo "💡 使用 pnpm install 安装依赖 完成"
       - name: Build VitePress
         run: pnpm run docs:build # 这里是打包 vitepress 命令
-      - run: echo "🎉 执行 pnpm run docs:build 完成"
+      - run: echo "💡 执行 pnpm run docs:build 完成"
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.DOC_TOKEN }} # 这一步很重要，单独看下面的大步骤，主要是用来给该脚本一些仓库权限
           publish_dir: .vitepress/dist # 指定该文件夹中的 dist
-          publish_branch: gh-pages # 推送到关联仓库的 gh-pages 分支
+          publish_branch: docs # 推送到关联仓库的 gh-pages 分支
           dotfiles: true  # 包括在提交中，即使被 .gitignore 文件忽略
-      - name: 列出存储库中的文件
+      - name: 🎉 开始列出工作目录存储文件
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 作业部署的状态为 ${{ job.status }}."
