@@ -5,6 +5,7 @@ import './hello.js'
  * 配置VitePress应用的参数
  *
  * @returns {object} VitePress配置对象
+ * @author xyqierkang@163.com
  */
 
 export default defineConfig({

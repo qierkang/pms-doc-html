@@ -3,20 +3,20 @@ run-name: ${{ github.actor }} 流水线正在部署PMS-DOC项目 🚀
 on:
   push:
     branches:
-      - master # 这段是在推送到 docs 分支时触发该命令
+      - master # 这段是在推送到 master 分支时触发该命令
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # 乌班图docker容器运行
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          ref: master # 这一步检查 docs 代码
+          ref: master # 这一步检查 master 代码
       - name: Setup Node.js and pnpm
         uses: actions/setup-node@v3
         with:
-          node-version: '22.11.0' # 设置 nodejs 的版本
+          node-version: '22.11.0' # 设置 nodejs 的版本,跟尔康本地 node 版本同步
       - run: echo "💡 设置 nodejs 的版本完成"
       - name: Install pnpm
         run: npm install -g pnpm # 全局安装 pnpm
@@ -37,4 +37,4 @@ jobs:
       - name: 🎉 开始列出工作目录存储文件
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🍏 作业部署的状态为 ${{ job.status }}."
+      - run: echo "🍏 作业部署的状态为 ${{ job.status }}. @author xyqierkang@163.com"
